@@ -1,7 +1,8 @@
 *.php linguist-detectable=true 
 *.js linguist-detectable=true 
 *.jsx linguist-detectable=true 
-*.cs linguist-detectable=true 
+*.cs linguist-detectable=true
+*.java linguist-language=Text 
 *.ll linguist-language=Text 
 *.s linguist-language=Text 
 *.bc linguist-language=Text 
