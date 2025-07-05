@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="xclsvApp.MainPage"
+             xmlns:vm="clr-namespace:xclsvApp.ViewModel"
+             Title="XCLSV" BackgroundColor= "White"
+             >
+
+    <ContentPage.BindingContext>
+        <vm:HomeViewModel/>
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout>
+            <StackLayout Margin="60, 40, 60, 0">
+                <Grid ColumnDefinitions="*" RowDefinitions="*, *">
+
+                    <Border StrokeShape="RoundRectangle 40,40,40,40" Grid.Row="0" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="600" Margin="0, 40, 0, 40">
+                        <Frame BackgroundColor="{StaticResource EntrytextColor}" >
+                            <Label Text="{Binding Money}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                        </Frame>
+                        
+                    </Border>
+
+                    <StackLayout Grid.Row="1" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center" Margin="30, 30, 30, 30">
+                        <Grid ColumnDefinitions="*,*,*" RowDefinitions="*" ColumnSpacing="80">
+                            <Border Stroke="{StaticResource EntrytextColor}" StrokeDashArray="8" StrokeShape="RoundRectangle 40,0,0,40" Grid.Row="0" Grid.Column="0" HorizontalOptions="Center" Margin="0, 50, 0, 0" VerticalOptions="Start" WidthRequest="160" MinimumHeightRequest="200" Padding="0, 15, 0, 0">
+                                <!-- Hány darab product van jelenleg -->
+                                <Label Text="{Binding FirstLabelText}" TextColor="{StaticResource TextColor}" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                            </Border>
+                            <Border Stroke="{StaticResource EntrytextColor}" StrokeDashArray="8" StrokeShape="RoundRectangle 40,40,40,40" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" Margin="0, 0, 0, 50" VerticalOptions="Center" WidthRequest="180" MinimumHeightRequest="200" Padding="0, 15, 0, 0">
+                                <!-- Top 5 vagy 10 product -->
+                                <Label Text="{Binding SecondLabelText}" TextColor="{StaticResource TextColor}" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                            </Border>
+                            <Border Stroke="{StaticResource EntrytextColor}" StrokeDashArray="8" StrokeShape="RoundRectangle 0,40,40,0" Grid.Row="0" Grid.Column="2" HorizontalOptions="Center" Margin="0, 50, 0, 0" VerticalOptions="End" WidthRequest="160" MinimumHeightRequest="200" Padding="0, 15, 0, 0">
+                                <!-- Valami -->
+                                <Label Text="{Binding ThirdLabelText}" TextColor="{StaticResource TextColor}" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                    </StackLayout>
+                </Grid>
+                
+            </StackLayout>
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

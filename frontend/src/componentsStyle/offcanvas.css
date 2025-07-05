@@ -1,0 +1,29 @@
+.menu-cucc {
+    padding: 0 !important;
+}
+
+li {
+    list-style: none;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-size: 20px;
+}
+
+.offcanvas-termek-vonal{
+    position: relative;
+    padding-left: 1em;
+}
+
+.offcanvas-termek-vonal:before {
+    font-size: 10px;
+    content: "\2014";
+    position: absolute;
+    left: 0;
+    top: 5px
+}
+
+@media screen and (min-width: 992px) {
+    #offcanvasExample {
+        width: 60% !important;
+    }
+}

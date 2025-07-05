@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="xclsvApp.Pages.ProductsPage"
+             xmlns:vm="clr-namespace:xclsvApp.ViewModel"
+             Title="Termékek"
+             BackgroundColor= "White"
+             >
+    <ContentPage.BindingContext>
+        <vm:ProductsViewModel/>
+    </ContentPage.BindingContext>
+
+    <StackLayout Margin="60, 40, 60, 40" Padding="20">
+
+        <VerticalStackLayout>
+            <Grid ColumnDefinitions="*" RowDefinitions="*, *, *, *">
+                <StackLayout Grid.Column="0" Grid.Row="0">
+                    <Grid RowDefinitions="*"  ColumnDefinitions="*, 200">
+                        <SearchBar Grid.Column="0" Grid.Row="0" Placeholder="Keresés..." Text="{Binding SearchText}"/>
+                        <Button Text="Termék hozzáadása" Grid.Column="1" Grid.Row="0"  HorizontalOptions="End" Command="{Binding Source={RelativeSource AncestorType={x:Type vm:ProductsViewModel}}, Path=NavigateToAddEditProductCommand}"/>
+
+                    </Grid>
+                </StackLayout>
+
+                <Grid ColumnDefinitions="50, 100, 200, 100, *" RowDefinitions="*" BackgroundColor="Grey" Grid.Row="1" Margin="0, 30, 0, 5">
+
+                    <Label Text="ID" Grid.Row="0" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                    <Label Text="Kép" Grid.Row="0" Grid.Column="1"  VerticalTextAlignment="Center"/>
+                    <Label Text="Név" Grid.Row="0" Grid.Column="2"  VerticalTextAlignment="Center"/>
+                    <Label Text="Ár" Grid.Row="0" Grid.Column="3"  VerticalTextAlignment="Center"/>
+                    <Label Text="Műveletek" Grid.Row="0" Grid.Column="4"  VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+
+
+                </Grid>
+
+                <CollectionView ItemsSource="{Binding Products}" SelectionMode="None" VerticalOptions="FillAndExpand" 
+                                HeightRequest="220" Grid.Column="0" Grid.Row="2">
+                    
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+
+                                <Grid ColumnDefinitions="50, 100, 200, 100, *" RowDefinitions="*" Margin="0, 5, 0, 0" 
+                                      HeightRequest="50" BackgroundColor="#8400ff">
+
+                                    <Label Text="{Binding Id}" Grid.Row="0" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center"/>
+                                    
+                                    <Border WidthRequest="40" HeightRequest="40" Grid.Row="0" Grid.Column="1" HorizontalOptions="Start">
+                                        <Image Source="{Binding ProductImage}" VerticalOptions="Center"/>
+                                    </Border>
+                                    
+                                    <Label Text="{Binding Name}" Grid.Row="0" Grid.Column="2" VerticalTextAlignment="Center"/>
+                                    <Label Text="{Binding Price}" Grid.Row="0" Grid.Column="3"  VerticalTextAlignment="Center"/>
+                                    <Grid Grid.Row="0" Grid.Column="4" RowDefinitions="*" ColumnDefinitions="*,*" HorizontalOptions="End">
+
+                                        <Button Text="Törlés" Command="{Binding Source={RelativeSource AncestorType={x:Type vm:ProductsViewModel}},
+                                            Path=DeleteProductCommand}" CommandParameter="{Binding}" Grid.Row="0" Grid.Column="0" 
+                                                CornerRadius="0" WidthRequest="100" FontSize="12" BackgroundColor="Red"/>
+
+                                        <Button Text="Szerkesztés" Command="{Binding Source={RelativeSource AncestorType={x:Type vm:ProductsViewModel}}, 
+                                            Path=NavigateToAddEditProductCommand}" CommandParameter="{Binding}" Grid.Row="0" Grid.Column="1"
+                                                CornerRadius="0" WidthRequest="100" FontSize="12" BackgroundColor="Yellow"/>
+                                    </Grid>
+
+                                </Grid>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <Button Text="Frissítés" VerticalOptions="End" Grid.Row="4"  Margin="20, 20, 20, 0" Command="{Binding LoadProductsCommand}"/>
+            </Grid>
+        </VerticalStackLayout>
+    </StackLayout>
+</ContentPage>

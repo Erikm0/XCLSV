@@ -1,0 +1,175 @@
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.login_video_parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.col-lg-7.col-md-6.col-sm-12::before {
+    content: "";
+    position: absolute;
+    background-color: white;
+    border-radius: 30px 0 0 30px;
+    z-index: 2;
+    height: 100vh;
+    width: 10px;
+    transform: translateX(-20px);
+}
+
+.accountthing_parent {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.login_video {
+    opacity: 70%;
+    width: auto;
+    object-fit: cover;
+}
+
+.video_text {
+    position: absolute;
+    z-index: 10;
+    width: fit-content;
+    padding: 10px;
+}
+
+.video_text_title {
+    color: #8400ff;
+    text-shadow: #040404 1px 0 5px;
+    font-size: 3vw;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.video_text_content {
+    font-size: 28px;
+}
+
+.feature_divs {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 20px;
+    border: 2px dashed #8400ff;
+    width: 30%;
+    padding: 10px;
+}
+
+.feature_numbers {
+    border: 1px dashed #000000;
+    background-color: #8400ff;
+    padding: 2px;
+}
+
+.feature_text {
+    font-size: 25px;
+    text-shadow: #040404 1px 0 1px;
+}
+
+.beiros_input{
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #8400ff;
+    color: #8400ff;
+}
+
+.beiros_input:focus{
+    border: 2px dotted #8400ff !important;
+    outline: none;
+}
+
+.beiros_input::placeholder{
+    color: #8400ff;
+}
+
+.react-tel-input{
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #8400ff;
+    color: #8400ff;
+}
+
+.react-tel-input:focus{
+    border: 2px dotted #8400ff !important;
+    outline: none;
+}
+.form-control{
+    color: #8400ff;
+}
+.form-control:focus{
+    color: #8400ff !important;
+}
+
+.account_option_div {
+    width: 100%;
+}
+
+.account_option_title {
+    min-width: 60%;
+}
+
+.account_option_forms {
+    min-width: 40%;
+}
+
+.flag-dropdown{
+    border:none !important;
+    background-color: transparent;
+}
+.form-control{
+    border:none !important;
+    background-color: transparent;
+}
+.form-control:focus{
+    outline: none !important;
+    background-color: transparent !important;
+}
+
+.submitButtons{
+    background-color: #8400ff;
+    color: black;
+    letter-spacing: .01em;
+    text-transform: uppercase;
+    align-self: flex-start;
+    padding: .8em .7em .5em;
+    font-size: 18px;
+    font-weight: 900;
+    line-height: 1;
+    transition: color .2s, background-color .2s;
+    display: block;
+    background-image: linear-gradient(90deg, #8400ff 50%, transparent 50%), linear-gradient(90deg, #8400ff 50%, transparent 50%), linear-gradient(0deg, #8400ff 50%, transparent 50%), linear-gradient(0deg, #8400ff 50%, transparent 50%);
+    background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+    background-size: 5px 1px, 5px 1px, 1px 5px, 1px 5px;
+    background-position: left top, right bottom, left bottom, right top;
+    animation: border-dance 1s infinite linear;
+}
+
+.submitButtons:hover {
+    border-style: dashed;
+    border-color: transparent;
+    color: #8400ff;
+    background-color: transparent;
+}
+
+@keyframes border-dance {
+    0% {
+        background-position: left top, right bottom, left bottom, right top;
+    }
+    100% {
+        background-position: left 15px top, right 15px bottom, left bottom 15px, right top 15px;
+    }
+}

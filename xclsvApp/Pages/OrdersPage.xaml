@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="xclsvApp.Pages.OrdersPage"
+             xmlns:vm="clr-namespace:xclsvApp.ViewModel"
+             Title="Rendelések"
+             BackgroundColor= "White">
+    <ContentPage.BindingContext>
+        <vm:OrdersViewModel/>
+    </ContentPage.BindingContext>
+
+    <VerticalStackLayout>
+
+
+
+            <Grid RowDefinitions="*"  ColumnDefinitions="*, 150" Margin="20">
+
+            <SearchBar Grid.Column="0" Grid.Row="0" Placeholder="Keresés..." Text="{Binding SearchText}"/>
+            <Button Text="Frissítés" HorizontalOptions="End" Grid.Column="1" Grid.Row="0" Command="{Binding LoadContentCommand}"/>
+
+            </Grid>
+
+            <Grid RowDefinitions="*" ColumnDefinitions="*,*,*,*,*,*" Margin="20, 10, 20, 0">
+                <Label Grid.Row="0" Grid.Column="0" HorizontalOptions="Center" Text="Rendelés Id" TextColor="{StaticResource TextColor}"/>
+                <Label Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" Text="Kép" TextColor="{StaticResource TextColor}"/>
+                <Label Grid.Row="0" Grid.Column="2" HorizontalOptions="Center" Text="Név" TextColor="{StaticResource TextColor}"/>
+                <Label Grid.Row="0" Grid.Column="3" HorizontalOptions="Center" Text="Darabszám" TextColor="{StaticResource TextColor}"/>
+                <Label Grid.Row="0" Grid.Column="4" HorizontalOptions="Center" Text="Ár (Ft)" TextColor="{StaticResource TextColor}"/>
+                <Label Grid.Row="0" Grid.Column="5" HorizontalOptions="Center" Text="Státusz" TextColor="{StaticResource TextColor}"/>
+            </Grid>
+
+            <VerticalStackLayout>
+                <CollectionView HorizontalOptions="Center" SelectionMode="Single" Margin="20" HeightRequest="350" ItemsSource="{Binding OrderCollection}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+
+                                <Grid RowDefinitions="*" ColumnDefinitions="*,*,*,*,*,*" BackgroundColor="#7000ff" Margin="0, 5, 0, 0">
+
+                                    <Label Grid.Row="0" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center" Text="{Binding OrderId}"/>
+                                    <Border Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="40" HeightRequest="40">
+                                        <Image Source="{Binding ProductImage}"/>
+                                    </Border>
+                                    <Label Grid.Row="0" Grid.Column="2" HorizontalOptions="Center" VerticalOptions="Center" Text="{Binding ProductName}"/>
+                                    <Label Grid.Row="0" Grid.Column="3" HorizontalOptions="Center" VerticalOptions="Center" Text="{Binding Quantity}"/>
+                                    <Label Grid.Row="0" Grid.Column="4" HorizontalOptions="Center" VerticalOptions="Center" Text="{Binding Price}"/>
+                                    <Image Grid.Row="0" Grid.Column="5" HorizontalOptions="Center" VerticalOptions="Center" Margin="5" HeightRequest="40" WidthRequest="40" Source="{Binding StatusCode}"/>
+                                </Grid>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+</ContentPage>

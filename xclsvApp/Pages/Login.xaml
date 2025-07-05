@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="xclsvApp.Pages.Login"
+             xmlns:local="clr-namespace:xclsvApp.ViewModel"
+             Title="Bejelentkezés"
+             Background="White">
+    <ContentPage.BindingContext>
+        <local:LoginViewModel/>
+    </ContentPage.BindingContext>
+
+    <VerticalStackLayout Padding="50">
+        <Label Text="XCLSV" FontSize="30" TextColor="{StaticResource SecondaryTextColor}" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Center" Margin="0"/>
+        <Label Text="admin felület" FontSize="24" TextColor="{StaticResource SecondaryTextColor}" VerticalOptions="Center" HorizontalOptions="Center" Margin="0"/>
+
+        <StackLayout WidthRequest="500" Margin="0, 30, 0, 0">
+            <Entry Text="{Binding Email}" Placeholder="E-mail" Margin="50, 15, 50, 15"/>
+            <Entry Text="{Binding Password}" Placeholder="Jelszó" IsPassword="True" Margin="50, 0, 50, 15"/>
+            <Button Text="Bejelentkezés" VerticalOptions="Center" Command="{Binding LoginCommand}" HorizontalOptions="Center"/>
+            <Frame BackgroundColor="{Binding ResultColor}" IsVisible="{Binding IsVisible}" Margin="20">
+                <VerticalStackLayout>
+                    <Label Text="{Binding ResultText}"/>
+                </VerticalStackLayout>
+            </Frame>
+        </StackLayout>
+    </VerticalStackLayout>
+</ContentPage>
