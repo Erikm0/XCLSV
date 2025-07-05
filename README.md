@@ -1,4 +1,4 @@
-# xclsv
+# XCLSV
 ***A new generation clothing brand***
 
 ## Használati útmutató
